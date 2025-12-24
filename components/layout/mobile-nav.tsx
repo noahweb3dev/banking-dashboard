@@ -20,7 +20,7 @@ export function MobileNav() {
                 className="w-full max-w-xs md:hidden"
             >
                 <div className="mb-6 text-xl font-bold p-4 border-b">
-                    MyBank
+                    VaultBank
                 </div>
 
                 <nav className="flex flex-col space-y-2 px-4">

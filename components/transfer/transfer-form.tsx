@@ -16,6 +16,7 @@ import {
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
 import { ArrowRight } from "lucide-react"
+import { toast } from "@/lib/use-toast"
 
 type Step = 1 | 2 | 3 | 4
 
@@ -27,29 +28,34 @@ export function TransferForm() {
     const [fromId, setFromId] = useState("")
     const [toId, setToId] = useState("")
     const [amount, setAmount] = useState("")
-    const [error, setError] = useState("")
 
     const from = accounts.find((a) => a.id === fromId)
     const to = accounts.find((a) => a.id === toId)
     const amt = Number(amount)
 
     function next() {
-        setError("")
         setStep((s) => (s + 1) as Step)
     }
 
     function back() {
-        setError("")
         setStep((s) => (s - 1) as Step)
     }
 
     function validateStep1() {
         if (!from || !to) {
-            setError("Please select both accounts.")
+            toast({
+                title: "Validation Error",
+                description: "Please select both accounts.",
+                variant: "destructive",
+            })
             return false
         }
         if (from.id === to.id) {
-            setError("Accounts must be different.")
+            toast({
+                title: "Validation Error",
+                description: "Accounts must be different.",
+                variant: "destructive",
+            })
             return false
         }
         return true
@@ -57,11 +63,19 @@ export function TransferForm() {
 
     function validateStep2() {
         if (!amt || amt <= 0) {
-            setError("Enter a valid amount.")
+            toast({
+                title: "Validation Error",
+                description: "Enter a valid amount.",
+                variant: "destructive",
+            })
             return false
         }
         if (!from || from.balance < amt) {
-            setError("Insufficient funds.")
+            toast({
+                title: "Validation Error",
+                description: "Insufficient funds.",
+                variant: "destructive",
+            })
             return false
         }
         return true
@@ -79,13 +93,6 @@ export function TransferForm() {
             </CardHeader>
 
             <CardContent className="space-y-6">
-                {error && (
-                    <Alert variant="destructive">
-                        <AlertTitle>Error</AlertTitle>
-                        <AlertDescription>{error}</AlertDescription>
-                    </Alert>
-                )}
-
                 {/* STEP 1 — SELECT ACCOUNTS */}
                 {step === 1 && (
                     <>
@@ -178,12 +185,12 @@ export function TransferForm() {
 
                 {/* STEP 4 — SUCCESS */}
                 {step === 4 && (
-                    <Alert>
-                        <AlertTitle>Transfer Complete</AlertTitle>
-                        <AlertDescription>
+                    <div className="text-center">
+                        <h3 className="text-lg font-semibold text-green-600">Transfer Complete</h3>
+                        <p className="text-sm text-muted-foreground">
                             Your transfer was successful and balances have been updated.
-                        </AlertDescription>
-                    </Alert>
+                        </p>
+                    </div>
                 )}
             </CardContent>
         </Card>
