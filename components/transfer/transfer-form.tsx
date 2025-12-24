@@ -1,8 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { accounts } from "@/lib/mock/accounts"
-import { transfers } from "@/lib/mock/transfers"
+import { useBank } from "@/components/providers/bank-provider"
 import { formatCurrency } from "@/lib/format"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -21,6 +20,9 @@ import { ArrowRight } from "lucide-react"
 type Step = 1 | 2 | 3 | 4
 
 export function TransferForm() {
+    const { state, transfer } = useBank()
+    const accounts = state.accounts
+
     const [step, setStep] = useState<Step>(1)
     const [fromId, setFromId] = useState("")
     const [toId, setToId] = useState("")
@@ -54,7 +56,7 @@ export function TransferForm() {
     }
 
     function validateStep2() {
-        if (amt <= 0) {
+        if (!amt || amt <= 0) {
             setError("Enter a valid amount.")
             return false
         }
@@ -66,13 +68,7 @@ export function TransferForm() {
     }
 
     function submit() {
-        transfers.push({
-            id: `tr_${Date.now()}`,
-            fromAccountId: fromId,
-            toAccountId: toId,
-            amount: amt,
-            date: new Date().toISOString(),
-        })
+        transfer(fromId, toId, amt)
         next()
     }
 
@@ -90,7 +86,7 @@ export function TransferForm() {
                     </Alert>
                 )}
 
-                {/* STEP 1 — ACCOUNTS */}
+                {/* STEP 1 — SELECT ACCOUNTS */}
                 {step === 1 && (
                     <>
                         <Select value={fromId} onValueChange={setFromId}>
@@ -128,7 +124,7 @@ export function TransferForm() {
                     </>
                 )}
 
-                {/* STEP 2 — AMOUNT */}
+                {/* STEP 2 — ENTER AMOUNT */}
                 {step === 2 && (
                     <>
                         <Input
@@ -185,7 +181,7 @@ export function TransferForm() {
                     <Alert>
                         <AlertTitle>Transfer Complete</AlertTitle>
                         <AlertDescription>
-                            Your money has been transferred successfully.
+                            Your transfer was successful and balances have been updated.
                         </AlertDescription>
                     </Alert>
                 )}

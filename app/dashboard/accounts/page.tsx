@@ -1,16 +1,28 @@
-import { AccountsTable } from "@/components/accounts/accounts-table"
+"use client"
+
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { useBank } from "@/components/providers/bank-provider"
 
 export default function AccountsPage() {
-    return (
-        <div className="space-y-6">
-            <div>
-                <h1 className="text-2xl font-bold">Accounts</h1>
-                <p className="text-muted-foreground">
-                    View and manage your bank accounts
-                </p>
-            </div>
+    const { state } = useBank()
 
-            <AccountsTable />
+    return (
+        <div className="space-y-4">
+            {state.accounts.map((account) => (
+                <Card key={account.id}>
+                    <CardHeader className="text-sm text-muted-foreground">
+                        {account.name}
+                    </CardHeader>
+                    <CardContent>
+                        <div className="text-2xl font-bold">
+                            ${account.balance.toLocaleString()}
+                        </div>
+                        <p className="text-sm capitalize text-muted-foreground">
+                            {account.type} account
+                        </p>
+                    </CardContent>
+                </Card>
+            ))}
         </div>
     )
 }

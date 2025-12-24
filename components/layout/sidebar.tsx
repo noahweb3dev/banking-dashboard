@@ -11,7 +11,7 @@ export function Sidebar() {
     return (
         <aside className="hidden md:flex w-64 flex-col border-r bg-background">
             <div className="p-6 text-xl font-bold">
-                MyBank
+                VaultBank
             </div>
 
             <nav className="flex-1 space-y-1 px-4">
