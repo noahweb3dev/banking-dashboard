@@ -21,14 +21,14 @@ const initialState: BankState = {
             id: "acc_checking",
             name: "Checking Account",
             type: "checking",
-            balance: 573_222,
+            balance: 573_222.14,
             currency: "USD",
         },
         {
             id: "acc_savings",
             name: "Savings Account",
             type: "savings",
-            balance: 822_500,
+            balance: 822_500.5,
             currency: "USD",
         },
     ],
@@ -39,7 +39,39 @@ export function loadBankState(): BankState {
     if (typeof window === "undefined") return initialState
 
     const stored = localStorage.getItem(STORAGE_KEY)
-    return stored ? JSON.parse(stored) : initialState
+    if (!stored) return initialState
+
+    try {
+        const parsed: BankState = JSON.parse(stored)
+
+        // Migration: if stored balances are integers (no cents), add the small
+        // cent adjustments so the balances reflect the intended values.
+        const needsMigration = parsed.accounts.some(a => Number.isInteger(a.balance))
+
+        if (needsMigration) {
+            const migrated = {
+                ...parsed,
+                accounts: parsed.accounts.map((a) => {
+                    if (a.id === "acc_checking") {
+                        return { ...a, balance: a.balance + 0.14 }
+                    }
+                    if (a.id === "acc_savings") {
+                        return { ...a, balance: a.balance + 0.5 }
+                    }
+                    return a
+                }),
+            }
+
+            // Persist migrated state
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated))
+            return migrated
+        }
+
+        return parsed
+    } catch (e) {
+        // If parsing fails, fall back to initial state
+        return initialState
+    }
 }
 
 export function saveBankState(state: BankState) {

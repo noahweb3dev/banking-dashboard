@@ -1,5 +1,5 @@
 import { AccountCards } from "@/components/dashboard/account-cards"
-import { QuickStats } from "@/components/dashboard/quick-stats"
+import { TransactionsSummary } from "@/components/dashboard/transactions-summary"
 
 export default function DashboardPage() {
     return (
@@ -12,7 +12,7 @@ export default function DashboardPage() {
             </div>
 
             <AccountCards />
-            <QuickStats />
+            <TransactionsSummary />
         </div>
     )
 }

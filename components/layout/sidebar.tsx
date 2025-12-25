@@ -4,14 +4,15 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { navigation } from "@/lib/navigation"
+import { Logo } from "./logo"
 
 export function Sidebar() {
     const pathname = usePathname()
 
     return (
         <aside className="hidden md:flex w-64 flex-col border-r bg-background">
-            <div className="p-6 text-xl font-bold">
-                VaultBank
+            <div className="p-6">
+                <Logo />
             </div>
 
             <nav className="flex-1 space-y-1 px-4">

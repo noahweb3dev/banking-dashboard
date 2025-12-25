@@ -5,6 +5,7 @@ import { Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { navigation } from "@/lib/navigation"
+import { Logo } from "./logo"
 
 export function MobileNav() {
     return (
@@ -19,8 +20,8 @@ export function MobileNav() {
                 side="left"
                 className="w-full max-w-xs md:hidden"
             >
-                <div className="mb-6 text-xl font-bold p-4 border-b">
-                    VaultBank
+                <div className="mb-6 p-4 border-b">
+                    <Logo />
                 </div>
 
                 <nav className="flex flex-col space-y-2 px-4">

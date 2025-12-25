@@ -2,6 +2,7 @@
 
 import { signOut, useSession } from "next-auth/react"
 import { MobileNav } from "./mobile-nav"
+import { Logo } from "./logo"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import {
     DropdownMenu,
@@ -14,8 +15,11 @@ import { ThemeToggle } from "./theme-toggle"
 export function TopBar() {
     const { data: session } = useSession()
 
-    const handleLogout = () => {
-        signOut({ callbackUrl: "/login" })
+    const handleLogout = async () => {
+        await signOut({ 
+            callbackUrl: "/login",
+            redirect: true 
+        })
     }
 
     const initials = session?.user?.name?.split(" ").map(n => n[0]).join("") || "U"
@@ -24,6 +28,7 @@ export function TopBar() {
         <header className="flex h-16 items-center justify-between border-b px-4">
             <div className="flex items-center gap-2">
                 <MobileNav />
+                <Logo className="hidden md:block" />
                 <ThemeToggle />
             </div>
 
