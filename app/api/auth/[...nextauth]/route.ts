@@ -25,7 +25,7 @@ export const authOptions = {
 
         // Simple mock authentication
         const user = users.find(u => u.email === credentials.email)
-        if (user && credentials.password === "password") { // Mock password
+        if (user && credentials.password === "Somebabe@67!") { // Mock password
           return {
             id: user.id,
             name: user.name,

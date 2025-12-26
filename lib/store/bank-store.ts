@@ -68,7 +68,7 @@ export function loadBankState(): BankState {
         }
 
         // Ensure transactions are loaded - always include mock transactions if fewer than expected
-        if (!migrated.transactions || migrated.transactions.length < mockTransactions.length) {
+        if (!migrated.transactions || migrated.transactions.length < 20) {
             migrated = {
                 ...migrated,
                 transactions: mockTransactions,

@@ -3,24 +3,6 @@ import { Transaction } from "@/types/transaction"
 export const transactions: Transaction[] = [
     {
         id: "txn_001",
-        timestamp: "2025-11-01T09:00:00Z",
-        description: "Salary Deposit",
-        amount: 5200,
-        type: "deposit",
-        accountId: "acc_checking",
-        status: "completed",
-    },
-    {
-        id: "txn_002",
-        timestamp: "2025-11-02T14:30:00Z",
-        description: "Grocery Store Purchase",
-        amount: -85.50,
-        type: "withdrawal",
-        accountId: "acc_checking",
-        status: "completed",
-    },
-    {
-        id: "txn_003",
         timestamp: "2025-11-05T10:15:00Z",
         description: "Transfer to Savings",
         amount: -1000,
@@ -30,7 +12,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_004",
+        id: "txn_002",
         timestamp: "2025-11-07T16:45:00Z",
         description: "Online Shopping",
         amount: -150.25,
@@ -39,7 +21,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_005",
+        id: "txn_003",
         timestamp: "2025-11-10T08:00:00Z",
         description: "Dividend Payment",
         amount: 250,
@@ -48,16 +30,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_006",
-        timestamp: "2025-11-12T12:20:00Z",
-        description: "Rent Payment",
-        amount: -1800,
-        type: "withdrawal",
-        accountId: "acc_checking",
-        status: "completed",
-    },
-    {
-        id: "txn_007",
+        id: "txn_005",
         timestamp: "2025-11-15T11:30:00Z",
         description: "ATM Withdrawal",
         amount: -200,
@@ -66,17 +39,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_008",
-        timestamp: "2025-11-18T09:45:00Z",
-        description: "Transfer from Savings",
-        amount: 500,
-        type: "transfer",
-        accountId: "acc_savings",
-        toAccountId: "acc_checking",
-        status: "completed",
-    },
-    {
-        id: "txn_009",
+        id: "txn_004",
         timestamp: "2025-11-20T15:10:00Z",
         description: "Utility Bill Payment",
         amount: -120.75,
@@ -85,7 +48,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_010",
+        id: "txn_005",
         timestamp: "2025-11-22T13:25:00Z",
         description: "Freelance Payment",
         amount: 800,
@@ -94,7 +57,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_011",
+        id: "txn_006",
         timestamp: "2025-11-25T10:50:00Z",
         description: "Coffee Shop",
         amount: -12.50,
@@ -103,7 +66,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_012",
+        id: "txn_007",
         timestamp: "2025-11-28T17:00:00Z",
         description: "Transfer to Savings",
         amount: -750,
@@ -113,16 +76,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_013",
-        timestamp: "2025-12-01T09:00:00Z",
-        description: "Salary Deposit",
-        amount: 5200,
-        type: "deposit",
-        accountId: "acc_checking",
-        status: "completed",
-    },
-    {
-        id: "txn_014",
+        id: "txn_008",
         timestamp: "2025-12-03T14:15:00Z",
         description: "Gas Station",
         amount: -45.30,
@@ -131,7 +85,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_015",
+        id: "txn_009",
         timestamp: "2025-12-05T11:20:00Z",
         description: "Restaurant",
         amount: -67.80,
@@ -140,7 +94,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_016",
+        id: "txn_010",
         timestamp: "2025-12-08T16:40:00Z",
         description: "Online Subscription",
         amount: -15.99,
@@ -149,7 +103,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_017",
+        id: "txn_011",
         timestamp: "2025-12-10T08:30:00Z",
         description: "Interest Earned",
         amount: 25.50,
@@ -158,16 +112,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_018",
-        timestamp: "2025-12-12T12:10:00Z",
-        description: "Rent Payment",
-        amount: -1800,
-        type: "withdrawal",
-        accountId: "acc_checking",
-        status: "completed",
-    },
-    {
-        id: "txn_019",
+        id: "txn_012",
         timestamp: "2025-12-15T09:55:00Z",
         description: "ATM Deposit",
         amount: 300,
@@ -176,7 +121,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_020",
+        id: "txn_013",
         timestamp: "2025-12-18T14:25:00Z",
         description: "Transfer to Savings",
         amount: -600,
@@ -186,7 +131,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_021",
+        id: "txn_014",
         timestamp: "2025-12-20T11:45:00Z",
         description: "Gift Received",
         amount: 100,
@@ -195,16 +140,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_022",
-        timestamp: "2025-12-22T16:30:00Z",
-        description: "Holiday Shopping",
-        amount: -250.00,
-        type: "withdrawal",
-        accountId: "acc_checking",
-        status: "completed",
-    },
-    {
-        id: "txn_024",
+        id: "txn_015",
         timestamp: "2025-11-26T18:45:00Z",
         description: "Online Subscription",
         amount: -9.99,
@@ -213,7 +149,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_025",
+        id: "txn_016",
         timestamp: "2025-11-27T07:30:00Z",
         description: "ATM Withdrawal",
         amount: -100,
@@ -222,7 +158,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_026",
+        id: "txn_017",
         timestamp: "2025-11-29T16:20:00Z",
         description: "Transfer to Savings",
         amount: -300,
@@ -232,7 +168,7 @@ export const transactions: Transaction[] = [
         status: "completed",
     },
     {
-        id: "txn_027",
+        id: "txn_018",
         timestamp: "2025-11-30T12:00:00Z",
         description: "Freelance Payment",
         amount: 350,
