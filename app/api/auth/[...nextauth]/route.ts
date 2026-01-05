@@ -5,7 +5,7 @@ import { User } from "@/types/user"
 const users: User[] = [
   {
     id: "user_1",
-    name: "Jamie",
+    name: "Jamie Lee Curtis",
     email: "jamieleecurtis997@gmail.com",
   },
 ]

@@ -14,7 +14,7 @@ const STORAGE_KEY = "bank_state"
 const initialState: BankState = {
     user: {
         id: "user_1",
-        name: "Jamie",
+        name: "Jamie Lee Curtis",
         email: "jamieleecurtis997@gmail.com",
     },
     accounts: [
